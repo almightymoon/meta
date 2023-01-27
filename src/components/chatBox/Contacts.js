@@ -117,117 +117,127 @@ export default function Contacts({ contacts, changeChat, }) {
   );
 }
 const Container = styled.div`
-  display: grid;
-  grid-template-rows: 10% 7% 65%;
-  overflow: hidden;
-  background-color: #080420;
-  .brand {
+display: grid;
+grid-template-rows: 10% 7% 65%;
+overflow: hidden;
+background-color: #080420;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  img {
+    height: 2rem;
+  }
+  h3 {
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+.newsearch{
+  display:flex;
+  align-items:center;
+  position:relative;
+  left 3rem;
+}
+.newsearch input{
+  width: 75%;
+  height:2.3rem;
+  border-radius:25px;
+}
+.newsearch input:focus{
+  outline:none;
+}
+.newsearch form{
+  display:flex;
+  flex-wrap:no-wrap;
+}
+.newsearch button{
+  position: relative;
+  height: 1.9rem;
+  right: 4.4rem;
+  top: 0.2rem;
+  border-radius:25px;
+  background:#0d0d30;
+  color:white;
+  
+}
+.newsearch button:hover{
+  height:2rem;
+  right:4.5rem;
+  
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  gap: 0.8rem;
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+    &-thumb {
+      background-color: #ffffff39;
+      width: 0.1rem;
+      border-radius: 1rem;
+    }
+  }
+  .contact {
+    background-color: #ffffff34;
+    min-height: 5rem;
+    cursor: pointer;
+    width: 90%;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
     display: flex;
-    align-items: center;
     gap: 1rem;
-    justify-content: center;
-    img {
-      height: 2rem;
-    }
-    h3 {
-      color: white;
-      text-transform: uppercase;
-    }
-  }
-
-  .newsearch{
-    display:flex;
-    align-items:center;
-    position:relative;
-    left 3rem;
-  }
-  .newsearch input{
-    width: 15rem;
-    height:2.3rem;
-    border-radius:25px;
-  }
-  .newsearch input:focus{
-    outline:none;
-  }
-  .newsearch button{
-    position: relative;
-    right:4.4rem;
-    height:1.8rem;
-    border-radius:25px;
-    background:#0d0d30;
-    color:white;
-    
-  }
-  .newsearch button:hover{
-    height:2rem;
-    right:4.5rem;
-    
-  }
-
-  .contacts {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    overflow: auto;
-    gap: 0.8rem;
-    &::-webkit-scrollbar {
-      width: 0.2rem;
-      &-thumb {
-        background-color: #ffffff39;
-        width: 0.1rem;
-        border-radius: 1rem;
-      }
-    }
-    .contact {
-      background-color: #ffffff34;
-      min-height: 5rem;
-      cursor: pointer;
-      width: 90%;
-      border-radius: 0.2rem;
-      padding: 0.4rem;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      transition: 0.5s ease-in-out;
-      .avatar {
-        img {
-          height: 3rem;
-        }
-      }
-      .username {
-        h3 {
-          color: white;
-        }
-      }
-    }
-    .selected {
-      background-color: #9a86f3;
-    }
-  }
-  .current-user {
-    background-color: #0d0d30;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    transition: 0.5s ease-in-out;
     .avatar {
       img {
-        height: 4rem;
-        max-inline-size: 100%;
+        height: 3rem;
       }
     }
     .username {
-      h2 {
+      h3 {
         color: white;
       }
     }
-    @media screen and (min-width: 720px) and (max-width: 1080px) {
-      gap: 0.5rem;
-      .username {
-        h2 {
-          font-size: 1rem;
-        }
-      }
+  }
+  .selected {
+    background-color: #9a86f3;
+  }
+}
+.current-user {
+  background-color: #0d0d30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  .avatar {
+    img {
+      height: 4rem;
+      max-inline-size: 100%;
     }
   }
+  .username {
+    h2 {
+      color: white;
+    }
+  }
+  @media screen and (min-width: 720px)  {
+    gap: 0.5rem;
+    .username {
+      h2 {
+        font-size: 1rem;
+      }
+
+    }
+  .newsearch form{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  }
+}
 `;

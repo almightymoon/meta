@@ -49,7 +49,7 @@ export default function Chat() {
   return (
     <>
       <Container>
-        <div className="container">
+      <div className="container">
           <Contacts contacts={contacts} changeChat={handleChatChange} />
           {currentChat === undefined ? (
             <Welcome />
