@@ -46,7 +46,7 @@ export default function Contacts({ contacts, changeChat, }) {
       <button type="submit">search</button>
     </form>
           </div>
-          {/* <div className="contacts">
+          <div className="contacts">
             {contacts
               .filter((contact) => contact.username === inputValue)
               .map((contact, index) => {
@@ -70,9 +70,9 @@ export default function Contacts({ contacts, changeChat, }) {
                   </div>
                 );
               })}
-          </div> */}
+          </div>
 
-  <div className="contacts">
+  {/* <div className="contacts">
     {contacts
       .filter((contact) => inputValue.startsWith("@") ? contact.username.includes(inputValue.substring(1)) : contact.username === inputValue)
       .map((contact, index) => {
@@ -96,7 +96,7 @@ export default function Contacts({ contacts, changeChat, }) {
           </div>
         );
       })}
-  </div>
+  </div> */}
 
 
           <div></div>
