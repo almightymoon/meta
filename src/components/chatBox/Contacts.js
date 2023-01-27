@@ -46,7 +46,7 @@ export default function Contacts({ contacts, changeChat, }) {
       <button type="submit">search</button>
     </form>
           </div>
-          <div className="contacts">
+          {/* <div className="contacts">
             {contacts
               .filter((contact) => contact.username === inputValue)
               .map((contact, index) => {
@@ -70,32 +70,34 @@ export default function Contacts({ contacts, changeChat, }) {
                   </div>
                 );
               })}
-          </div>
-
-
-          {/* <div className="contacts">
-            {contacts.map((contact, index) => {
-              return (
-                <div
-                  key={contact._id}
-                  className={`contact ${
-                    index === currentSelected ? "selected" : ""
-                  }`}
-                  onClick={() => changeCurrentChat(index, contact)}
-                >
-                  <div className="avatar">
-                    <img
-                      src={`data:image/svg+xml;base64,${contact.avatarImage}`}
-                      alt=""
-                    />
-                  </div>
-                  <div className="username">
-                    <h3>{contact.username}</h3>
-                  </div>
-                </div>
-              );
-            })}
           </div> */}
+
+  <div className="contacts">
+    {contacts
+      .filter((contact) => inputValue.startsWith("@") ? contact.username.includes(inputValue.substring(1)) : contact.username === inputValue)
+      .map((contact, index) => {
+        return (
+          <div
+            key={contact._id}
+            className={`contact ${
+              index === currentSelected ? "selected" : ""
+            }`}
+            onClick={() => changeCurrentChat(index, contact)}
+          >
+            <div className="avatar">
+              <img
+                src={`data:image/svg+xml;base64,${contact.avatarImage}`}
+                alt=""
+              />
+            </div>
+            <div className="username">
+              <h3>{contact.username}</h3>
+            </div>
+          </div>
+        );
+      })}
+  </div>
+
 
           <div></div>
           <div className="current-user">
@@ -132,6 +134,7 @@ const Container = styled.div`
       text-transform: uppercase;
     }
   }
+
   .newsearch{
     display:flex;
     align-items:center;
@@ -155,6 +158,12 @@ const Container = styled.div`
     color:white;
     
   }
+  .newsearch button:hover{
+    height:2rem;
+    right:4.5rem;
+    
+  }
+
   .contacts {
     display: flex;
     flex-direction: column;
